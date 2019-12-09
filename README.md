@@ -1,12 +1,10 @@
 gflib
 ===
 
-##Description
-
+## Description
 Python library of finite field calculator
 
-##Usage
-
+## Usage
 This library contains 2 classes 'gf' and 'gfex'.
 
 At first, you need to type as follows.
@@ -14,7 +12,7 @@ At first, you need to type as follows.
 from gflib import gf,gfex
 ```
 
-###gf class
+### gf class
 gf class has one class variable 'gf.space'
 
 You can get the surplus of gf.space if you operate two gf object each other.
@@ -30,7 +28,7 @@ You can get the surplus of gf.space if you operate two gf object each other.
 2
 ```
 
-###gfex class
+### gfex class
 You have to set the constant before using this class by calling 'gfex.set_const(m,p,ply)'.
 and you can get the table of the elements by using 'gfex.info()'.
 ```
@@ -53,3 +51,26 @@ p and m value can be set by 1st and 2nd arguments.
 (You need to transposition all item except highest degree item)
 
 ![Imgur](https://i.imgur.com/lDYVT3V.png)
+
+
+gfex class supports '+,-,*,/' operators as well.
+```
+>>> gfex(2)+gfex(4)
+[0, 1, 0] 1
+>>> gfex(2)-gfex(4)
+[0, 1, 0] 1
+>>> gfex(2)*gfex(4)
+[1, 0, 1] 6
+>>> gfex(2)/gfex(4)
+[1, 1, 1] 5
+```
+If you wanna use 0, you need to initialize gfex() by passing -1.
+```
+>>> zero = gfex(-1)
+>>> zero
+[0, 0, 0] -1
+>>> gfex(3)*zero
+[0, 0, 0] -1
+>>> gfex(3)+zero
+[1, 1, 0] 3
+```
