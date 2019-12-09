@@ -1,7 +1,9 @@
 gflib
 ===
+
 ##Description
 Python library of finite field calculator
+
 ##Usage
 
 This library contains 2 classes 'gf' and 'gfex'.
