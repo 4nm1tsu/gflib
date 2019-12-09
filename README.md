@@ -48,4 +48,5 @@ p and m value can be set by 1st and 2nd arguments.
 
 3rd argument means the coefficient of primitive polynomial.
 (You need to transposition all item except highest degree item)
+
 ![Imgur](https://i.imgur.com/lDYVT3V.png)
