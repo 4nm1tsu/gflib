@@ -162,10 +162,12 @@ class gfex(gf):
             if array == -1:
                 for i in range(gfex.M):
                     self.gfval.append(gf(0))
+                self.value=-1
             else:
                 tmp=gfex.dec2bin(gfex.TABLE[array])
                 for i in tmp:
                     self.gfval.append(i)
+                self.value=gfex.TABLE.index(gfex.bin2dec(self.gfval))
         elif type(array[0]) is gf:#gf配列
             tmp=[]
             for i in array:
@@ -173,16 +175,21 @@ class gfex(gf):
             if not any(tmp):#すべて0
                 for i in range(gfex.M):
                     self.gfval.append(gf(0))
+                self.value=-1
             else:
                 for i in array:
                     self.gfval.append(i)
+                self.value=gfex.TABLE.index(gfex.bin2dec(self.gfval))
         else:#ただの配列
             if not any(array):
                 for i in range(gfex.M):
                     self.gfval.append(gf(0))
+                self.value=-1
             else:
                 for i in array:
                     self.gfval.append(gf(i))
+                self.value=gfex.TABLE.index(gfex.bin2dec(self.gfval))
+
     def __repr__(self):
         tmp=[]
         for i in range(gfex.M):
@@ -225,7 +232,7 @@ class gfex(gf):
             return gfex(-1)
         else:
             a=gfex.TABLE.index(gfex.bin2dec(self.gfval))
-        if not any(tmps):
+        if not any(tmpy):
             return gfex(-1)
         else:
             b=gfex.TABLE.index(gfex.bin2dec(y.gfval))
